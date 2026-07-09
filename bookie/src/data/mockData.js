@@ -569,9 +569,9 @@ export const mockAuthors = [
 
 export const mockCurrentUser = {
   id: 99,
-  name: 'Marina',
+  name: 'user2508',
   bio: 'Quer ler sem esforço e acompanhar sem cobrança.',
-  avatar: 'MA',
+  avatar: 'U2',
   identity: 'Leitora Voraz',
   followers: 86,
 };

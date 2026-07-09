@@ -11,7 +11,7 @@ Voz de "amiga curiosa" que **convida, nunca cobra**.
 **Princípios (não violar):** reader-first · menos esforço ("1 toque") · convite nunca cobrança ·
 privacidade por padrão · "parece feito pra mim".
 
-**Personas:** Marina (primária — lê pouco, não usa apps, quer registro sem esforço) · Bruna
+**Personas:** user2508 (primária — lê pouco, não usa apps, quer registro sem esforço) · Bruna
 (comunidade/retenção) · Letícia (notas/multiplataforma).
 
 ## Stack
@@ -77,7 +77,7 @@ Abas **Livros · Autores · Pessoas**. Em Pessoas, digitar nome → lista com "S
 
 ## Dados fictícios (exemplos)
 Livros: "A Biblioteca da Meia-Noite" (Matt Haig), "Rei da Ira" (Ana Huang, série Reis do Pecado),
-"Circe" (Madeline Miller), "Torto Arado" (Itamar Vieira Junior), "Pachinko". Usuária logada: **Marina**.
+"Circe" (Madeline Miller), "Torto Arado" (Itamar Vieira Junior), "Pachinko". Usuária logada: **user2508**.
 Leitoras da comunidade: Bruna, Letícia.
 
 ## Melhorias já mapeadas dos testes (aplicar)
