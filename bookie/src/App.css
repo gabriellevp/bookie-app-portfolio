@@ -2583,6 +2583,129 @@ button.spoiler-box {
   margin-bottom: 16px;
 }
 
+/* ===== Celebração ao salvar progresso ===== */
+.celebration-card {
+  text-align: center;
+  overflow: hidden;
+  padding-top: 28px;
+}
+
+.celebration-emoji {
+  display: block;
+  font-size: 56px;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.celebration-title {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.celebration-text {
+  color: var(--texto-2);
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.stars--celebration {
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.celebration-book-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  background: var(--papel);
+  border: 1px solid var(--linha);
+  border-radius: 18px;
+  padding: 14px;
+  margin-bottom: 20px;
+}
+
+.celebration-book-card__cover {
+  width: 56px;
+  height: 78px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.celebration-book-card__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.celebration-book-card__title {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--tinta);
+  margin: 0 0 10px;
+}
+
+.celebration-book-card__progress-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.celebration-book-card__percent {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--roxo-escuro);
+  flex-shrink: 0;
+}
+
+.celebration-continue {
+  width: 100%;
+}
+
+.celebration-close-link {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  border: 0;
+  background: transparent;
+  color: var(--texto-2);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.confetti-burst {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 190px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -12px;
+  opacity: 0.9;
+  animation: confetti-fall 1.2s ease-in forwards;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(170px) rotate(340deg);
+    opacity: 0;
+  }
+}
+
 .sheet-book-row {
   display: flex;
   align-items: center;

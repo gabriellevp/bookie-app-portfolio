@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { IconSparkles, IconUser, IconUsers, IconWorld } from '@tabler/icons-react'
 import { useBookie } from '../contexts/BookieContext'
 import { coverStyle } from '../utils/coverStyle'
+import { CelebrationModal } from './CelebrationModal'
 
 const privacyOptions = [
   { value: 'privado', label: 'Notas pessoais', icon: IconUser },
@@ -14,16 +15,49 @@ export function ProgressSheet({ book, onClose }) {
   const [page, setPage] = useState(String(book.pagesRead ?? 0))
   const [reaction, setReaction] = useState('')
   const [privacy, setPrivacy] = useState('amigos')
+  const [celebration, setCelebration] = useState(null)
+  const [celebrationPagesGained, setCelebrationPagesGained] = useState(0)
 
   const pageNumber = Math.min(Math.max(Number(page) || 0, 0), book.totalPages)
   const percent = book.totalPages > 0 ? Math.round((pageNumber / book.totalPages) * 100) : 0
 
   const handleSave = () => {
-    updateBook(book.id, { pagesRead: pageNumber, progress: percent })
+    const isFinished = percent >= 100
+    setCelebrationPagesGained(Math.max(pageNumber - (book.pagesRead ?? 0), 0))
+    updateBook(book.id, {
+      pagesRead: pageNumber,
+      progress: percent,
+      ...(isFinished ? { status: 'Já li' } : {}),
+    })
     if (reaction.trim() && privacy === 'privado') {
       addNote(book.id, { title: 'Reação', text: reaction.trim() })
     }
+    setCelebration(isFinished ? 'finished' : 'standard')
+  }
+
+  const handleFinishReview = (result) => {
+    if (result) {
+      if (result.stars > 0) {
+        updateBook(book.id, { userRating: result.stars })
+      }
+      if (result.review.trim()) {
+        addNote(book.id, { title: 'Resenha', text: result.review.trim() })
+      }
+    }
     onClose()
+  }
+
+  if (celebration) {
+    return (
+      <CelebrationModal
+        variant={celebration}
+        book={book}
+        percent={percent}
+        pagesGained={celebrationPagesGained}
+        onClose={onClose}
+        onFinishReview={handleFinishReview}
+      />
+    )
   }
 
   return (

@@ -38,7 +38,6 @@ function BookDetailPage() {
   const [expandedSynopsis, setExpandedSynopsis] = useState(false)
   const [warningsExpanded, setWarningsExpanded] = useState(false)
   const [revealedWarnings, setRevealedWarnings] = useState({})
-  const [userStarRating, setUserStarRating] = useState(0)
   const [noteText, setNoteText] = useState('')
   const [noteBookId, setNoteBookId] = useState(null)
   const [noteTag, setNoteTag] = useState('')
@@ -284,10 +283,10 @@ function BookDetailPage() {
                   key={index}
                   type="button"
                   className="star-button"
-                  onClick={() => setUserStarRating(index + 1)}
+                  onClick={() => updateBook(book.id, { userRating: index + 1 })}
                   aria-label={`Avaliação ${index + 1} estrelas`}
                 >
-                  {index < userStarRating ? (
+                  {index < (book.userRating || 0) ? (
                     <IconStarFilled size={18} color="var(--sol)" />
                   ) : (
                     <IconStar size={18} color="var(--texto-2)" />
