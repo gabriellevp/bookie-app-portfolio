@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem -Recurse -Force -Path \".\\\\bookie\\\\src\" | Select-Object FullName | ForEach-Object { $_.FullName.Replace\\(\\(Resolve-Path \".\\\\bookie\"\\).Path, \"\"\\) })",
+      "PowerShell(npm run *)"
+    ]
+  }
+}
